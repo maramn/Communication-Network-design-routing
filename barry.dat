@@ -1,0 +1,250 @@
+param adm_cost = 1000000;
+param bbdx_flow_cost = 4;
+param adm_usage_cost = 2;
+param arc_capacity = 48000;
+
+set CYCLES := 
+ABLNIKMQHD
+MEGRCOSQ
+IPTUJFK
+;
+
+param rings :=
+ABLNIKMQHD  4
+MEGRCOSQ    6
+IPTUJFK	    3
+;
+
+param bbdx :=
+A     1
+B     1
+C     0
+D     0
+E     0
+F     0
+G     1
+H     0
+I     1
+J     1
+K     1
+L     0
+M     1
+N     0
+O     1
+P     1
+Q     1
+R     0
+S     0
+T     0
+U     0
+;
+
+set COMMODITIES :=
+A   B
+A   C
+A   D
+A   E
+A   F
+A   G
+A   H
+A   I
+A   J
+A   K
+A   L
+A   M
+A   N
+A   O
+A   P
+A   Q
+A   R
+A   S
+T   F
+T   I
+T   J
+T   P
+B   F
+B   G
+B   I
+B   J
+B   K
+B   L
+B   N
+B   O
+B   P
+B   S
+C   G
+C   I
+C   K
+C   O
+C   R
+C   S
+D   H
+E   G
+E   I
+E   J
+E   K
+E   M
+E   R
+F   G
+F   I
+F   J
+F   K
+F   P
+F   S
+G   I
+G   J
+G   K
+G   M
+G   O
+G   P
+G   R
+G   S
+H   M
+I   J
+I   K
+I   L
+I   M
+I   N
+I   O
+I   P
+I   R
+J   K
+J   M
+J   N
+J   O
+J   P
+J   U
+J   R
+K   M
+K   N
+K   O
+K   P
+K   R
+L   N
+M   O
+M   P
+M   S
+N   O
+O   P
+O   R
+O   S
+R   S
+;
+
+param demand :=
+A     B	     66000
+A     C	     1000
+A     D	     34000
+A     E	     2000
+A     F	     2000
+A     G	     23000
+A     H	     10000
+A     I	     16000
+A     J	     13000
+A     K	     6000
+A     L	     9000
+A     M	     23000
+A     N	     17000
+A     O	     57000
+A     P	     9000
+A     Q	     12000
+A     R	     1000
+A     S	     21000
+T     F	     2000
+T     I	     3000
+T     J	     1000
+T     P	     30000
+B     F	     1000
+B     G	     3000
+B     I	     8000
+B     J	     3000
+B     K	     2000
+B     L	     2000
+B     N	     1000
+B     O	     1000
+B     P	     2000
+B     S	     1000
+C     G	     14000
+C     I	     1000
+C     K	     1000
+C     O	     21000
+C     R	     3000
+C     S	     3000
+D     H	     2000
+E     G	     32000
+E     I	     8000
+E     J	     8000
+E     K	     8000
+E     M	     2000
+E     R	     1000
+F     G	     6000
+F     I	     19000
+F     J	     61000
+F     K	     10000
+F     P	     2000
+F     S	     1000
+G     I	     13000
+G     J	     23000
+G     K	     4000
+G     M	     17000
+G     O	     118000
+G     P	     6000
+G     R	     177000
+G     S	     15000
+H     M	     1000
+I     J	     32000
+I     K	     20000
+I     L	     1000
+I     M	     10000
+I     N	     31000
+I     O	     18000
+I     P	     31000
+I     R	     1000
+J     K	     24000
+J     M	     8000
+J     N	     3000
+J     O	     16000
+J     P	     11000
+J     U	     9000
+J     R	     1000
+K     M	     2000
+K     N	     2000
+K     O	     10000
+K     P	     2000
+K     R	     2000
+L     N	     10000
+M     O	     4000
+M     P	     1000
+M     S	     2000
+N     O	     1000
+O     P	     9000
+O     R	     23000
+O     S	     113000
+R     S	     4000
+;
+
+param cost_symmetric_raw :=
+A     B			 1.08
+B     L			 1.08
+L     N			 1.04
+N     I			 1.07
+I     K			 1.05
+K     M			 1.07
+M     Q			 1.06
+Q     H			 1.01
+H     D			 1.03
+D     A			 1.03
+G     R			 1.01
+R     C			 1.05
+C     O			 1.04
+O     S			 1.04
+S     Q			 1.10
+M     E			 1.06
+E     G			 1.05
+J     F			 1.01
+F     K			 1.03
+I     P			 1.04
+P     T			 1.03
+T     U			 1.02
+U     J			 1.02
+;

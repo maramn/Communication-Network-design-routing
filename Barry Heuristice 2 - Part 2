@@ -1,0 +1,164 @@
+param adm_cost = 1000000;
+param bbdx_flow_cost = 4;
+param adm_usage_cost = 2;
+param arc_capacity = 48000;
+
+set CYCLES := 
+ABLNIKMQHD
+IPTUJFK
+;
+
+param rings :=
+ABLNIKMQHD  4
+IPTUJFK	    3
+;
+
+param bbdx :=
+A     1
+B     1
+D     0
+F     0
+H     0
+I     1
+J     1
+K     1
+L     0
+Q     1
+M	  1
+N     0
+P     1
+T     0
+U     0
+;
+
+set COMMODITIES :=
+A   B
+A   D
+A   Q
+A   F
+A   H
+A   I
+A   J
+A   K
+A   L
+A   N
+A	M
+A   P
+T   F
+T   I
+T   J
+T   P
+B   F
+B   Q
+B   I
+B   J
+B   K
+B   L
+B   N
+B   P
+D   H
+M   I
+M   J
+M   K
+F   I
+F   J
+F   K
+F   P
+F   Q
+H   M
+I   J
+I   K
+I	M
+I   L
+I   Q
+I   N
+I   P
+J   K
+J   Q
+J   N
+J   P
+J   U
+J	M
+K   Q
+K   N
+K	M
+K   P
+L   N
+M   P
+N   Q
+;
+
+param demand :=
+A   	B	66000
+A   	D	34000
+A   	Q	117000
+A   	F	2000
+A   	H	10000
+A   	I	16000
+A   	J	13000
+A   	K	6000
+A   	L	9000
+A   	N	17000
+A		M	23000
+A   	P	9000
+T   	F	2000
+T   	I	3000
+T   	J	1000
+T   	P	30000
+B   	F	1000
+B   	Q	5000
+B   	I	8000
+B   	J	3000
+B   	K	2000
+B   	L	2000
+B   	N	1000
+B   	P	2000
+D   	H	2000
+M   	I	22000
+M   	J	31000
+M   	K	13000
+F   	I	19000
+F   	J	61000
+F   	K	10000
+F   	P	2000
+F   	Q	7000
+H   	M	1000	
+I   	J	32000
+I   	K	20000
+I   	L	1000
+I   	Q	19000
+I   	N	31000
+I   	P	31000
+I		M	10000
+J   	K	24000
+J   	Q	17000
+J   	N	3000
+J   	P	11000
+J   	U	9000
+J		M	8000
+K   	Q	12000
+K		M	2000
+K   	N	2000
+K   	P	2000
+L   	N	10000
+M   	P	16000
+N   	Q	1000
+;
+
+param cost_symmetric_raw :=
+A     B			 1.08
+B     L			 1.08
+L     N			 1.04
+N     I			 1.07
+I     K			 1.05
+K     M			 1.07
+Q     H			 1.01
+H     D			 1.03
+D     A			 1.03
+J     F			 1.01
+F     K			 1.03
+I     P			 1.04
+P     T			 1.03
+T     U			 1.02
+U     J			 1.02
+;

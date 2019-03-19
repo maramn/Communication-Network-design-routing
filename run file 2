@@ -1,0 +1,45 @@
+model original.mod;
+data calpart1.dat;
+option solver cplex;
+
+# Mixed integer program (MIP) solver options
+option relax_integrality 0;
+option cplex_options 'mipdisplay 2 mipemphasis 3 mipinterval 1';
+solve;
+display Total_Cost;
+display adm;
+
+
+# LP relaxation
+option relax_integrality 1;
+solve;
+display Total_Cost;
+display adm;
+
+# Integer program
+option relax_integrality 0;
+solve;
+display Total_Cost;
+display adm;
+
+# Loop to fix integer variables and re-solve
+option relax_integrality 1;
+for {h in 1..5} {
+	for {i in RING_NODES: adm[i] = 0} {
+		fix adm[i] := 0;
+	}
+	solve;
+	printf "iteration # %d\n", h;
+	display Total_Cost;
+	display adm;
+}
+
+# Mixed integer program (MIP) solver options
+option relax_integrality 0;
+option cplex_options 'mipdisplay 2 mipemphasis 3 mipinterval 1';
+solve;
+display Total_Cost;
+display adm;
+
+
+

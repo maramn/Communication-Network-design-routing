@@ -1,0 +1,31 @@
+
+model original.mod;
+data calpart2.dat;
+
+printf "Cycles: %d\n", card(CYCLES);
+display NODES;
+display rings;
+
+printf "Hubs: %d\n", card(HUB_NODES);
+display HUB_NODES;
+display RING_NODES;
+display bbdx;
+display EDGES;
+
+printf "Commodities: %d\n", card(COMMODITIES);
+# display demand;
+
+printf "Type 0 arcs: %d\n", card(ARCS_0);
+# display ARCS_0;
+printf "Type 1 arcs: %d\n", card(ARCS_1);
+# display ARCS_1;
+printf "Type 2 arcs: %d\n", card(ARCS_2);
+# display ARCS_2;
+# display flow_cost;
+printf "Type 3 arcs: %d\n", card(ARCS_3);
+# display ARCS_3;
+
+option solver cplex;
+option relax_integrality 0;
+solve;
+display adm, flow0, flow1, flow2, flow3;

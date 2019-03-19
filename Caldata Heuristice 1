@@ -1,0 +1,130 @@
+param adm_cost = 1000000;
+param bbdx_flow_cost = 4;
+param adm_usage_cost = 2;
+param arc_capacity = 24000;
+
+set CYCLES := 
+ABEC
+BDE
+EGLKIHF
+HIKJ
+KLNM
+;
+
+param rings :=
+ABEC  4
+BDE   2
+EGLKIHF	3
+HIKJ	2
+KLNM	3
+;
+
+param bbdx :=
+A     1
+B     1
+C     0
+D     1
+E     1
+F     0
+G     0
+H     1
+I     0
+J     1
+K     1
+L     1
+M     0
+N     1
+;
+
+set COMMODITIES :=
+A   B
+A   D
+B   K
+B   D
+B   C
+B   A
+B   N
+B   E
+B   F
+B   J
+B   H
+K   I
+K   M
+K   A
+K   N
+K   J
+K   H
+K   L
+D   C
+D   A
+D   N
+D   J
+M   J
+C   A
+A   N
+A   E
+A   J
+N   J
+N   L
+E   G
+F   J
+J   H
+J   L
+;
+
+param demand :=
+A     B	     38000
+A     D	     7000
+B     K	     13000
+B     D	     19000
+B     C	     1000
+B     A	     42000
+B     N	     31000
+B     E	     7000
+B     F	     6000
+B     J	     9000
+B     H	     2000
+K     I	     1000
+K     M	     2000
+K     A	     11000
+K     N	     32000
+K     J	     14000
+K     H	     6000
+K     L	     6000
+D     C	     1000
+D     A	     12000
+D     N	     1000
+D     J	     2000
+M     J	     1000
+C     A	     1000
+A     N	     27000
+A     E	     5000
+A     J	     1000
+N     J	     20000
+N     L	     11000
+E     G	     3000
+F     J	     2000
+J     H	     4000
+J     L	     2000
+;
+
+param cost_symmetric_raw :=
+K     M	       1
+M     N	       1
+N     L	       1
+L     K	       1
+J     H	       1
+H     I	       1
+I     K	       1
+K     J	       1
+L     G	       2
+G     E	       3
+E     F	       3
+F     H	       2
+B     D	       1
+D     E	       1
+E     B	       1
+B     A	       1
+A     C	       1
+C     E	       1
+;
